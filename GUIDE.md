@@ -1,6 +1,6 @@
 # Run `Hunyuan3D-2.1` in Cloud
 
-This is working on the latest `TRELLIS.2` commit ([`1762f493fe7731a3b7cc6b79ad5da7b015b516c1`](https://github.com/microsoft/TRELLIS.2/commit/1762f493fe7731a3b7cc6b79ad5da7b015b516c1)).
+This is working on the latest `Hunyuan3D-2.1` commit ([``](https://github.com/Tencent-Hunyuan/Hunyuan3D-2.1/commit/)).
 
 <br/>
 
@@ -23,9 +23,6 @@ You can run a `RTX-A6000` VM on **HyperStack** for **$0.50/hour** with the follo
 
 > [!NOTE]
 > Make sure you choose `Ubuntu Server 22.04 LTS R550 CUDA 12.4` instead of the default `Ubuntu Server 22.04 LTS R535 CUDA 12.2` OS Image!
-> 
-> This is because `TRELLIS.2`'s README says:
-> > Recommended version is 12.4.
 
 <br/>
 
@@ -60,16 +57,35 @@ source $HOME/anaconda3/bin/activate
 > [!NOTE]
 > Installing `Anaconda3-2024.10-1` also installs `Python 3.12.7`. I checked that this is the last Anaconda version that comes with `Python 3.12`.
 
-## `TRELLIS.2`
+## `Hunyuan3D-2.1`
 
-The commands below are directly from `TRELLIS.2`'s [README](https://github.com/microsoft/TRELLIS.2/blob/main/README.md):
+The commands below are directly from `Hunyuan3D-2.1`'s [README](https://github.com/Tencent-Hunyuan/Hunyuan3D-2.1/blob/main/README.md):
 
 ```shell
-git clone -b main https://github.com/repulsio/TRELLIS.2.git --recursive
-cd TRELLIS.2/
+git clone -b main https://github.com/repulsio/Hunyuan3D-2.1.git --recursive
+cd Hunyuan3D-2.1/
 git checkout repulsio/hyperstack
+```
 
-. ./setup.sh --new-env --basic --flash-attn --nvdiffrast --nvdiffrec --cumesh --o-voxel --flexgemm
+<br/>
+
+### Conda Virtual Environment
+
+**References**:
+
+- [PyTorch installation](https://pytorch.org/get-started/previous-versions/)
+
+<br/>
+
+```shell
+conda create -n hy3d2.1 python=3.10 -y
+conda activate hy3d2.1
+
+pip install torch==2.6.0 torchvision==0.21.0 --index-url https://download.pytorch.org/whl/cu124
+
+pip install torch==2.5.1 torchvision==0.20.1 --index-url https://download.pytorch.org/whl/cu124
+pip install -r requirements.txt
+
 ```
 
 > [!WARNING]
@@ -83,10 +99,10 @@ pip install Pillow==10.4.0
 ```
 
 > [!IMPORTANT]
-> Here is the [link to the diff](https://github.com/microsoft/TRELLIS.2/compare/main...repulsio:repulsio/hyperstack) between
+> Here is the [link to the diff](https://github.com/Tencent-Hunyuan/Hunyuan3D-2.1/compare/main...repulsio:repulsio/hyperstack) between
 >
-> - the official `microsoft/TRELLIS - main` and
-> - my fork `repulsio/TRELLIS - repulsio/hyperstack`
+> - the official `Tencent-Hunyuan/Hunyuan3D-2.1 - main` and
+> - my fork `repulsio/Hunyuan3D-2.1 - repulsio/hyperstack`
 
 > [!NOTE]
 > The above command creates a Conda virtual environment named `trellis2` and activates it.
@@ -96,7 +112,7 @@ pip install Pillow==10.4.0
 > If you need to reactivate it, run `conda activate trellis2`.
 
 > [!WARNING]
-> Unfortunately, `TRELLIS.2` has 2 gated models as dependencies:
+> Unfortunately, `Hunyuan3D-2.1` has 2 gated models as dependencies:
 > 1. [`facebook/dinov3-vitl16-pretrain-lvd1689m`](https://huggingface.co/facebook/dinov3-vitl16-pretrain-lvd1689m)
 > 2. [`briaai/RMBG-2.0`](https://huggingface.co/briaai/RMBG-2.0)
 > 
