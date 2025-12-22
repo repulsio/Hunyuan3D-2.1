@@ -54,6 +54,7 @@ cupy-cuda12x==13.4.1
 
 # Blender
 # bpy==4.0
+bpy
 
 # ONNX Runtime
 onnxruntime==1.16.3
