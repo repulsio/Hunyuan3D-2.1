@@ -86,6 +86,15 @@ pip install torch==2.6.0 torchvision==0.21.0 --index-url https://download.pytorc
 pip install torch==2.5.1 torchvision==0.20.1 --index-url https://download.pytorch.org/whl/cu124
 pip install -r requirements.txt
 
+pip install bpy==4.0 --extra-index-url https://download.blender.org/pypi/
+
+cd hy3dpaint/custom_rasterizer
+pip install -e . --no-build-isolation
+cd ../..
+cd hy3dpaint/DifferentiableRenderer
+bash compile_mesh_painter.sh
+cd ../..
+
 ```
 
 > [!WARNING]
