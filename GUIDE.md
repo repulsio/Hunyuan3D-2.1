@@ -139,7 +139,11 @@ hf auth login
 ## Run Web Demo
 
 ```shell
-GRADIO_SERVER_NAME=0.0.0.0 GRADIO_SERVER_PORT=7860 python app.py
+python3 gradio_app.py \
+  --model_path tencent/Hunyuan3D-2.1 \
+  --subfolder hunyuan3d-dit-v2-1 \
+  --texgen_model_path tencent/Hunyuan3D-2.1 \
+  --low_vram_mode
 ```
 
-Open `http://<PUBLIC_IP_ADDRESS_OF_VM>:7860` in your web browser.
+Open `http://<PUBLIC_IP_ADDRESS_OF_VM>:8080` in your web browser.
